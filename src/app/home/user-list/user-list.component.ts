@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { UserService } from '../../service/user.service';
 import { CommonModule } from '@angular/common';
+import { User } from '../../model/user';
 
 @Component({
   selector: 'app-user-list',
@@ -13,4 +14,8 @@ export class UserListComponent {
   constructor(private getUser:UserService){}
 
   userList=this.getUser.getAllUsers()
+
+  showUserdetaile(user:User){
+    this.getUser.onShowUser(user)
+  }
 }

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { User } from '../model/user';
 import { MessageService } from './message.service';
 
@@ -7,21 +7,26 @@ import { MessageService } from './message.service';
 })
 export class UserService {
 
-  constructor() { }
+  constructor(private message: MessageService) { }
 
-  users:User[]=[
-    new User("John","male"),
-    new User("done","male")
+  users: User[] = [
+    new User("John", "male"),
+    new User("done", "male")
   ]
 
-  getAllUsers(){
+  userDetaileClike: EventEmitter<User> = new EventEmitter<User>()
+
+  onShowUser(user:User){
+    this.userDetaileClike.emit(user)
+  }
+
+  getAllUsers() {
     return this.users
   }
 
-  userCreate(name:string,gender:string){
-     let user=new User(name,gender)
+  userCreate(name: string, gender: string) {
+    let user = new User(name, gender)
     this.users.push(user)
-    let message=new MessageService()
-    message.LogMessage(name)
+    this.message.LogMessage(name)
   }
 }
