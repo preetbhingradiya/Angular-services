@@ -11,11 +11,13 @@ import { User } from '../../model/user';
   styleUrl: './user-list.component.scss'
 })
 export class UserListComponent {
-  constructor(private getUser:UserService){}
+  Oneuser: any[] = []
+  constructor(private getUser: UserService) { }
 
-  userList=this.getUser.getAllUsers()
-
-  showUserdetaile(user:User){
-    this.getUser.onShowUser(user)
+  showUserdetaile(user: User) {
+    let finde = this.getUser.getAllUsers().filter((ele) => ele == user)
+    this.Oneuser = finde
   }
+    userList = this.getUser.getAllUsers()
+
 }

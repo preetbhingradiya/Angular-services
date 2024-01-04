@@ -4,13 +4,11 @@ import { UserService } from '../service/user.service';
 import { CommonModule } from '@angular/common';
 import { UserListComponent } from './user-list/user-list.component';
 import { FormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
-import { UserDetailComponent } from './user-detail/user-detail.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule,UserListComponent,FormsModule,UserDetailComponent],
+  imports: [CommonModule,UserListComponent,FormsModule],
   templateUrl: './home.component.html',
   providers:[{provide:UserService,useClass:UserService}]  // INJECTION TKENS
 })

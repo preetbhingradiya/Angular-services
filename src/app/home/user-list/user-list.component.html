@@ -4,3 +4,13 @@
   <button (click)="showUserdetaile(i)">+</button>
 </div>
 
+<div *ngFor="let user of Oneuser" style="display: flex;align-items: center;text-align: center;">
+  <div>
+    <img [src]="user.gender=='Male'?'https://cdn.vectorstock.com/i/preview-1x/17/61/male-avatar-profile-picture-vector-10211761.jpg':'https://cdni.iconscout.com/illustration/premium/thumb/woman-profile-8187680-6590622.png?f=webp'" alt="" width="200px">
+  </div>
+  <div style="display: flex;flex-direction: column;padding-left: 20px;">
+    <h3>User Detaile</h3>
+    <p>Name :{{user.name}}</p>
+    <p>Gender : {{user.gender}}</p>
+  </div>
+</div>

@@ -10,15 +10,15 @@ export class UserService {
   constructor(private message: MessageService) { }
 
   users: User[] = [
-    new User("John", "male"),
-    new User("done", "male")
+    new User("John", "Male"),
+    new User("done", "Female")
   ]
 
-  userDetaileClike: EventEmitter<User> = new EventEmitter<User>()
+  // userDetaileClike: EventEmitter<User> = new EventEmitter<User>()
 
-  onShowUser(user:User){
-    this.userDetaileClike.emit(user)
-  }
+  // onShowUser(user:User){
+  //   this.userDetaileClike.emit(user)
+  // }
 
   getAllUsers() {
     return this.users
